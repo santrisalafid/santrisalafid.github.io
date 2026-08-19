@@ -68,9 +68,9 @@
         <i id="audioIcon" class="fas fa-volume-mute text-lg"></i>
     </button>
     
-    <!-- PENTING: Gunakan direct link .mp3 publik (Ganti src di bawah jika menggunakan file Anda sendiri) -->
+    <!-- Direct Audio Link dari GitHub Pages -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="https://github.com/santrisalafid/santrisalafid.github.io/blob/main/Download.mp3" type="audio/mp3">
+        <source src="https://santrisalafid.github.io/Download.mp3" type="audio/mp3">
         Browser Anda tidak mendukung elemen audio.
     </audio>
 
@@ -301,7 +301,6 @@
 
         function openInvitation() {
             document.getElementById('welcomeCover').style.transform = 'translateY(-100%)';
-            // Menjalankan audio saat tombol 'Buka Undangan' diklik (memenuhi syarat browser user gesture)
             if (!isPlaying) {
                 toggleAudio();
             }
@@ -333,6 +332,10 @@
                     countElem.innerHTML = "<div class='col-span-4 text-gold-400 font-bold text-lg py-2'>Acara Telah Berlangsung</div>";
                 }
             }
+        }, 1000);
+    </script>
+</body>
+</html>
         }, 1000);
     </script>
 </body>
