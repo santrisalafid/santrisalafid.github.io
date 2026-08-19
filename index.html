@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Kholid & Andita Putri Atsila</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            800: '#102a43',
+                            900: '#0b1b2b',
+                            950: '#060e17',
+                        },
+                        gold: {
+                            400: '#f0b429',
+                            500: '#de911d',
+                            600: '#cb6e17',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .batik-overlay {
+            background-image: radial-gradient(#de911d 0.75px, transparent 0.75px), radial-gradient(#de911d 0.75px, #0b1b2b 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.08;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fce38a 0%, #de911d 50%, #f0b429 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #f0b429 0%, #de911d 100%);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-navy-950">
+
+    <!-- Floating Audio Control Button -->
+    <button id="audioControl" onclick="toggleAudio()" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full gold-gradient-bg text-navy-950 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+        <i id="audioIcon" class="fas fa-music text-lg"></i>
+    </button>
+    <audio id="bgMusic" loop>
+        <source src="https://drive.google.com/uc?export=download&id=13AcbygVolo5C-FZYDGv56gL4K2LGZei6" type="audio/mp3">
+    </audio>
+
+    <!-- Cover / Welcome Screen Modal -->
+    <div id="welcomeCover" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950 transition-transform duration-1000 ease-in-out">
+        <div class="absolute inset-0 batik-overlay"></div>
+        <div class="relative z-10 text-center px-6 max-w-lg mx-auto" data-aos="fade-up">
+            <div class="w-24 h-24 mx-auto mb-6 rounded-full border-2 border-gold-500/40 p-2 flex items-center justify-center">
+                <div class="w-full h-full rounded-full gold-gradient-bg flex items-center justify-center text-navy-950 text-2xl font-serif font-bold">
+                    K & A
+                </div>
+            </div>
+            <p class="text-gold-400 uppercase tracking-[0.3em] text-xs font-semibold mb-2">Walimatul 'Ursy</p>
+            <h1 class="font-serif text-3xl md:text-5xl font-bold mb-4 gold-gradient-text">Kholid<br><span class="text-xl md:text-2xl font-sans font-light">&</span><br>Andita Putri Atsila</h1>
+            <p class="text-slate-300 text-sm mb-8">Kepada Yth. Bapak/Ibu/Saudara/i,<br>Kami mengundang Anda untuk berbagi kebahagiaan bersama kami.</p>
+            <button onclick="openInvitation()" class="px-8 py-3 rounded-full gold-gradient-bg text-navy-950 font-semibold shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto">
+                <i class="fas fa-envelope-open"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-4">
+        <div class="absolute inset-0 z-0">
+            <img src="https://drive.google.com/thumbnail?id=1S3Mzd0JPWUZuHc7BDARVbg0i5vuvbmuX&sz=w1600" alt="Hero Pasangan" class="w-full h-full object-cover object-center brightness-40 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-navy-950/40"></div>
+            <div class="absolute inset-0 batik-overlay"></div>
+        </div>
+
+        <div class="relative z-10 text-center max-w-3xl mx-auto" data-aos="zoom-in" data-aos-duration="1200">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-gold-500/30 bg-navy-900/60 backdrop-blur-sm text-gold-400 text-xs tracking-widest uppercase">
+                Undangan Pernikahan
+            </div>
+            <h1 class="font-serif text-4xl md:text-7xl font-bold mb-4 gold-gradient-text">Kholid & Andita</h1>
+            <p class="text-slate-200 text-lg md:text-xl font-light mb-8 italic">Rabu, 09 September 2026</p>
+
+            <!-- Real-time Countdown Timer -->
+            <div id="countdown" class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto my-8">
+                <div class="bg-navy-900/80 backdrop-blur-md border border-gold-500/30 p-3 rounded-lg text-center">
+                    <span id="days" class="text-2xl md:text-4xl font-bold text-gold-400 block">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-400">Hari</span>
+                </div>
+                <div class="bg-navy-900/80 backdrop-blur-md border border-gold-500/30 p-3 rounded-lg text-center">
+                    <span id="hours" class="text-2xl md:text-4xl font-bold text-gold-400 block">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-400">Jam</span>
+                </div>
+                <div class="bg-navy-900/80 backdrop-blur-md border border-gold-500/30 p-3 rounded-lg text-center">
+                    <span id="minutes" class="text-2xl md:text-4xl font-bold text-gold-400 block">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-400">Menit</span>
+                </div>
+                <div class="bg-navy-900/80 backdrop-blur-md border border-gold-500/30 p-3 rounded-lg text-center">
+                    <span id="seconds" class="text-2xl md:text-4xl font-bold text-gold-400 block">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-400">Detik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kutipan / Ayat Suci -->
+    <section class="py-16 px-4 bg-navy-900/50 relative border-y border-gold-500/10">
+        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+            <p class="font-arabic text-2xl md:text-3xl leading-loose text-gold-400 mb-6">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+            </p>
+            <p class="text-slate-300 text-sm md:text-base italic leading-relaxed mb-4">
+                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+            </p>
+            <span class="text-gold-500 text-xs tracking-widest uppercase font-semibold">(QS. Ar-Rum: 21)</span>
+        </div>
+    </section>
+
+    <!-- Profil Mempelai -->
+    <section class="py-20 px-4 max-w-5xl mx-auto relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold gold-gradient-text mb-2">Mempelai Pengantin</h2>
+            <p class="text-slate-400 text-sm">Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Mempelai Pria -->
+            <div class="text-center p-8 rounded-2xl bg-navy-900/40 border border-gold-500/20 backdrop-blur-sm relative" data-aos="fade-right">
+                <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-2 border-gold-500 p-1">
+                    <img src="https://drive.google.com/thumbnail?id=1pUU9k80ZwEdElim80Nu73Fmx-152WvUM&sz=w800" alt="Kholid" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-gold-400 mb-1">Kholid</h3>
+                <p class="text-xs text-gold-500 uppercase tracking-widest mb-4">Anak Pertama</p>
+                <p class="text-slate-300 text-sm mb-2">Putra dari</p>
+                <p class="font-semibold text-slate-100 mb-4">Bapak Sarno & Ibu Rofiah</p>
+                <p class="text-slate-400 text-xs leading-relaxed"><i class="fas fa-map-marker-alt text-gold-500 mr-1"></i> Genting, Grogol, Pejawaran, Banjarnegara</p>
+            </div>
+
+            <!-- Mempelai Wanita -->
+            <div class="text-center p-8 rounded-2xl bg-navy-900/40 border border-gold-500/20 backdrop-blur-sm relative" data-aos="fade-left">
+                <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-2 border-gold-500 p-1">
+                    <img src="https://drive.google.com/thumbnail?id=1x7qP5rRPV4L4gBl258dYjtxw-GBHcODf&sz=w800" alt="Andita Putri Atsila" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-gold-400 mb-1">Andita Putri Atsila</h3>
+                <p class="text-xs text-gold-500 uppercase tracking-widest mb-4">Anak Pertama</p>
+                <p class="text-slate-300 text-sm mb-2">Putri dari</p>
+                <p class="font-semibold text-slate-100 mb-4">Bapak Andi & Ibu Ida Mufidah</p>
+                <p class="text-slate-400 text-xs leading-relaxed"><i class="fas fa-map-marker-alt text-gold-500 mr-1"></i> Rowoputih, Pagumengan Mas, Karangdadap, Pekalongan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Rangkaian Acara -->
+    <section class="py-20 px-4 bg-navy-900/30 relative border-t border-gold-500/10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold gold-gradient-text mb-2">Rangkaian Acara</h2>
+                <p class="text-slate-400 text-sm">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk hadir</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Akad Nikah -->
+                <div class="bg-navy-900/60 border border-gold-500/30 p-6 rounded-xl text-center flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-12 h-12 rounded-full gold-gradient-bg text-navy-950 flex items-center justify-center mx-auto mb-4 text-xl">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-gold-400 mb-2">Akad Nikah</h3>
+                        <p class="text-slate-200 text-sm font-semibold mb-1">Rabu, 09 September 2026</p>
+                        <p class="text-slate-400 text-xs mb-4"><i class="far fa-clock mr-1"></i> 07.00 WIB</p>
+                        <hr class="border-gold-500/20 my-4">
+                        <p class="text-slate-300 text-sm font-medium mb-1">Lokasi:</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">Kediaman Mempelai Wanita<br>(Rowoputih, Pagumengan Mas, Karangdadap, Pekalongan)</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/mVd7vPiBQcGbJgBR9?g_st=iw" target="_blank" class="block w-full py-2 px-4 rounded-lg border border-gold-500 text-gold-400 text-xs hover:bg-gold-500 hover:text-navy-950 transition-colors">
+                        <i class="fas fa-map-marked-alt mr-1"></i> Petunjuk Lokasi
+                    </a>
+                </div>
+
+                <!-- Resepsi -->
+                <div class="bg-navy-900/60 border border-gold-500/30 p-6 rounded-xl text-center flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-12 h-12 rounded-full gold-gradient-bg text-navy-950 flex items-center justify-center mx-auto mb-4 text-xl">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-gold-400 mb-2">Resepsi</h3>
+                        <p class="text-slate-200 text-sm font-semibold mb-1">Rabu, 09 September 2026</p>
+                        <p class="text-slate-400 text-xs mb-4"><i class="far fa-clock mr-1"></i> 10.00 WIB</p>
+                        <hr class="border-gold-500/20 my-4">
+                        <p class="text-slate-300 text-sm font-medium mb-1">Lokasi:</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">Kediaman Mempelai Wanita<br>(Rowoputih, Pagumengan Mas, Karangdadap, Pekalongan)</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/mVd7vPiBQcGbJgBR9?g_st=iw" target="_blank" class="block w-full py-2 px-4 rounded-lg border border-gold-500 text-gold-400 text-xs hover:bg-gold-500 hover:text-navy-950 transition-colors">
+                        <i class="fas fa-map-marked-alt mr-1"></i> Petunjuk Lokasi
+                    </a>
+                </div>
+
+                <!-- Ramah Tamah -->
+                <div class="bg-navy-900/60 border border-gold-500/30 p-6 rounded-xl text-center flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-12 h-12 rounded-full gold-gradient-bg text-navy-950 flex items-center justify-center mx-auto mb-4 text-xl">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-gold-400 mb-2">Ramah Tamah</h3>
+                        <p class="text-slate-200 text-sm font-semibold mb-1">Senin, 14 September 2026</p>
+                        <p class="text-slate-400 text-xs mb-4"><i class="far fa-clock mr-1"></i> Fleksibel</p>
+                        <hr class="border-gold-500/20 my-4">
+                        <p class="text-slate-300 text-sm font-medium mb-1">Lokasi:</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">Kediaman Mempelai Pria<br>(Genting, Grogol, Pejawaran, Banjarnegara)</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/tKQwBJwPhbAwg4sZA?g_st=iw" target="_blank" class="block w-full py-2 px-4 rounded-lg border border-gold-500 text-gold-400 text-xs hover:bg-gold-500 hover:text-navy-950 transition-colors">
+                        <i class="fas fa-map-marked-alt mr-1"></i> Petunjuk Lokasi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tombol Peta Google Maps -->
+    <section class="py-20 px-4 max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="font-serif text-3xl font-bold gold-gradient-text mb-8">Peta Lokasi Acara</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 rounded-xl bg-navy-900/40 border border-gold-500/20">
+                <i class="fas fa-map-marker-alt text-3xl text-gold-400 mb-3"></i>
+                <h3 class="font-semibold text-lg mb-2">Lokasi Mempelai Wanita</h3>
+                <p class="text-xs text-slate-400 mb-4">Rowoputih, Pagumengan Mas, Karangdadap, Pekalongan</p>
+                <a href="https://maps.app.goo.gl/mVd7vPiBQcGbJgBR9?g_st=iw" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-gradient-bg text-navy-950 text-xs font-semibold shadow-md hover:scale-105 transition-transform">
+                    <i class="fas fa-directions"></i> Buka Google Maps
+                </a>
+            </div>
+            <div class="p-6 rounded-xl bg-navy-900/40 border border-gold-500/20">
+                <i class="fas fa-map-marker-alt text-3xl text-gold-400 mb-3"></i>
+                <h3 class="font-semibold text-lg mb-2">Lokasi Mempelai Pria</h3>
+                <p class="text-xs text-slate-400 mb-4">Genting, Grogol, Pejawaran, Banjarnegara</p>
+                <a href="https://maps.app.goo.gl/tKQwBJwPhbAwg4sZA?g_st=iw" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-gradient-bg text-navy-950 text-xs font-semibold shadow-md hover:scale-105 transition-transform">
+                    <i class="fas fa-directions"></i> Buka Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gold-500/20 text-center bg-navy-950">
+        <div class="max-w-xl mx-auto px-4">
+            <h3 class="font-serif text-2xl font-bold gold-gradient-text mb-2">Kholid & Andita</h3>
+            <p class="text-xs text-slate-400 mb-6">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+            <p class="text-[10px] text-slate-500">&copy; 2026 Undangan Pernikahan Digital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Audio Toggle Feature
+        const bgMusic = document.getElementById('bgMusic');
+        const audioIcon = document.getElementById('audioIcon');
+        let isPlaying = false;
+
+        function toggleAudio() {
+            if (isPlaying) {
+                bgMusic.pause();
+                audioIcon.className = 'fas fa-volume-mute text-lg';
+            } else {
+                bgMusic.play().catch(e => console.log('Audio autoplay prevented:', e));
+                audioIcon.className = 'fas fa-music text-lg';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function openInvitation() {
+            document.getElementById('welcomeCover').style.transform = 'translateY(-100%)';
+            toggleAudio();
+        }
+
+        // Real-Time Countdown Timer (09 September 2026)
+        const weddingDate = new Date("September 9, 2026 07:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (document.getElementById("days")) {
+                document.getElementById("days").innerText = days < 10 && days >= 0 ? '0' + days : (days < 0 ? '00' : days);
+                document.getElementById("hours").innerText = hours < 10 && hours >= 0 ? '0' + hours : (hours < 0 ? '00' : hours);
+                document.getElementById("minutes").innerText = minutes < 10 && minutes >= 0 ? '0' + minutes : (minutes < 0 ? '00' : minutes);
+                document.getElementById("seconds").innerText = seconds < 10 && seconds >= 0 ? '0' + seconds : (seconds < 0 ? '00' : seconds);
+            }
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                const countElem = document.getElementById("countdown");
+                if (countElem) {
+                    countElem.innerHTML = "<div class='col-span-4 text-gold-400 font-bold text-lg py-2'>Acara Telah Berlangsung</div>";
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
